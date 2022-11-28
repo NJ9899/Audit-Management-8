@@ -1,1 +1,54 @@
-<p>checklist works!</p>
+  
+    <h1>CheckList Page</h1>
+    <h2>App Name</h2>
+
+    <div class="container text-center">
+    <table class="table table-dark table-sm table-bordered">
+        
+        <thead >
+          <tr>
+            <th scope ="col">Audit Type</th>
+            <th scope ="col">Questions</th> 
+            <th scope ="col">Choices</th>
+            <th scope ="col">Response</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let ques of internalQuestions; let i = index; ">
+
+                <td>Internal</td>
+                <td class="col-sm-5" name="question">{{ internalQuestions[i].auditChecklistQuestions }}</td>
+                <td class="col-sm-3" name="response_table_data">
+                  <input type="button" value="YES" class="btn btn-success mx-4 px-4" (click) = "fn_response(i,true,'YES')"/>
+                  <input type="button" value="NO" class="btn btn-danger mx-4 px-4"(click) = "fn_response(i,false,'NO')"/>
+               </td>
+               <td class="col-sm-2" name="respon">{{yesOrNoResponse[i]}}</td>
+            </tr>
+
+            <tr *ngFor="let ques of soxQuestions; let i = index;" >
+                
+              <td>SOX</td>
+              <td class="col-sm-5" name="question">{{ soxQuestions[i].auditChecklistQuestions }}</td>
+              <td class="col-sm-3" name="response_table_data">
+                <input type="button" value="YES" class="btn btn-success mx-4 px-4" (click) = "fn_response(i+5,true,'YES')"/>
+                <input type="button" value="NO" class="btn btn-danger mx-4 px-4"(click) = "fn_response(i+5,false,'NO')"/>
+             </td>
+             <td class="col-sm-2" >{{ yesOrNoResponse[i+5] }}</td>
+          </tr>
+            
+        </tbody>
+    </table>
+    <div class="qdivbtn">
+      <button type="submit" class="btn btn-info lastbtn" (click)="getResponse()">Submit</button>
+    </div>
+    </div>
+
+
+
+ 
+<router-outlet></router-outlet>
+
+
+
+
