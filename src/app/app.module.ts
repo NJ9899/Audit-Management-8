@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { AuditStatusComponent } from './audit-status/audit-status.component';
+import { HeaderComponent } from './header/header.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ChecklistComponent,
-    AuditStatusComponent
+    AuditStatusComponent,
+    HeaderComponent,
+    
   ],
   imports: [
     BrowserModule,

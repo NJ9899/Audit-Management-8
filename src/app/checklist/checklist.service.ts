@@ -13,11 +13,11 @@ export class CheckListService {
 
   public getQuestionsByType(typeInt):Observable<Question[]>{
     console.log("type:"+typeInt);
-    return this.http.get<Question[]>("http://localhost:9080/checklist/"+typeInt);
+    return this.http.get<Question[]>("http://localhost:9631/checklist/"+typeInt);
   }
 
   public postResponses(response):any{
-    return this.http.post("http://localhost:9080/auditstatus",response);
+    return this.http.post("http://localhost:9631/auditstatus",response);
   }
 }
 
