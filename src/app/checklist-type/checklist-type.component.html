@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="py-3"></div>
+
+
+<div class="container">
+
+    <div class="card-body bg-dark  text-white" style="width:auto;">
+    
+        <h6 class="fw-normal mb-3 pb-3 m-3 text-center" style=" color: dimgray;">Choose Audit Type:
+        
+            <select class="selectTag mt-2" style="border-radius: 5px;" name="opt" [(ngModel)]="selectedValue">
+                <option value="Internal">Internal</option>
+                <option value="SOX">SOX</option>
+            </select>
+
+        </h6>
+
+        <div class="text-center pb-3">
+            <button class="btn btn-primary" (click)="checktype()" type="button">See Questions</button>
+        </div>
+
+    </div>
+
+</div>
