@@ -12,8 +12,6 @@ export class ChecklistComponent implements OnInit {
   
    constructor(private checklistService:CheckListService) {}
 
-  
-
   typeInt :string="Internal";
   typeSOX : string="SOX";
   internalQuestions: Question[];
