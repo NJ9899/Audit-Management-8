@@ -14,10 +14,9 @@
 
           <th scope="col">Audit Id</th>
 
-          <th scope="col">Project Name</th>   
+          <th scope="col">Project Name</th>
+          <th scope="col">Audit Type</th>   
           <th scope="col">Audit Status</th>
-
-          <th scope="col">Remedial Action</th>
 
         </tr>
 
@@ -27,19 +26,22 @@
 
         <tr style="text-align: center;">
 
-          <th scope="row">1</th>
+          <th scope="row">{{auditStatus[auditStatusLength].auditStatusId}}</th>
 
-          <td></td>
+          <td>SmartOps</td>
 
-          <td>zcgd</td>
+          <td>{{auditStatus[auditStatusLength].auditType}}</td>
 
-          <td>zhgcxg</td>
+          <td>{{auditStatus[auditStatusLength].auditStatus}}</td>
 
         </tr>
 
       </tbody>
 
 </table>
+<div class="qdivbtn ">
+  <button type="submit" class="btn btn-info lastbtn"   (click)="onSubmit()">Audit Again</button>
+</div>
 
     </div>
 
