@@ -6,13 +6,14 @@ import { ChecklistInternalComponent } from './checklist-internal/checklist-inter
 import { ChecklistSoxComponent } from './checklist-sox/checklist-sox.component';
 import { ChecklistTypeComponent } from './checklist-type/checklist-type.component';
 
-import { ChecklistComponent } from './checklist/checklist.component';
+
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path : " " , redirectTo: '/login'},
+  
   {path : "login" , component : LoginComponent},
-  {path : "checklist" , component : ChecklistComponent},
+  {path : "" , redirectTo: '/login', pathMatch: 'full'},
+ 
   {path : "audit-status" , component : AuditStatusComponent},
   {path : "checklist-type" , component : ChecklistTypeComponent},
   {path : "checklist-internal" , component : ChecklistInternalComponent},

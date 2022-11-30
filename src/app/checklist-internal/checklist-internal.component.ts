@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckListService } from '../checklist/checklist.service';
+import { Router } from '@angular/router';
+import { CheckListService } from '../checklist.service';
+
 
 @Component({
   selector: 'app-checklist-internal',
@@ -7,8 +9,10 @@ import { CheckListService } from '../checklist/checklist.service';
   styleUrls: ['./checklist-internal.component.css']
 })
 export class ChecklistInternalComponent implements OnInit {
+ 
+  message: any;
 
-  constructor(private checklistService:CheckListService) {}
+  constructor(private checklistService:CheckListService,private routes: Router) {}
 
   typeInt :string="Internal";
   internalQuestions: any;
@@ -34,20 +38,25 @@ export class ChecklistInternalComponent implements OnInit {
 
   onSubmit(){
     this.getCount()
-    console.log("count",this.count);
+    //console.log("count",this.count);
     let obj:any = {
-      "auditType":"Internal",
-      "auditResponseYesCount":this.count
+      "auditType":'Internal',
+      "auditResponseYesCount":this.count,
+      "benchMarkEntity":{
+        "auditBenchmarkId":1
+      }
     }
-    this.response.push(obj)
-    console.log("Respone",this.response)
+
+    console.log("Respone",obj)
+    //this.checklistService.postResponses(this.response).subscribe((data))
+    let resp = this.checklistService.postResponses(obj)
+    resp.subscribe((data)=>this.message=data) 
+    this.routes.navigate(['/audit-status']); 
   }
 
   ngOnInit() {
     let resp= this.checklistService.getQuestionsByType(this.typeInt);
     resp.subscribe((data)=>this.internalQuestions=data);
   }
-
-
 
 }

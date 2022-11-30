@@ -3,6 +3,7 @@ import { Observable}  from "rxjs/Observable";
 import { Question } from "./questions";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +17,14 @@ export class CheckListService {
     return this.http.get<Question[]>("http://localhost:9631/checklist/"+typeInt);
   }
 
-  public postResponses(response):any{
-    return this.http.post("http://localhost:9631/auditstatus",response);
+  // public postResponses(response):any{
+  //   const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
+  //   return this.http.post("http://localhost:9631/auditstatus",response,{headers,observe:'body',responseType:'json'});
+  // }
+
+  public postResponses(response){
+    //const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
+    return this.http.post("http://localhost:9631/auditstatus",response,{responseType:'text' as 'json'});
   }
 }
 

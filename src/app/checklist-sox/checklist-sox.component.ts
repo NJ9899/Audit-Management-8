@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckListService } from '../checklist/checklist.service';
+import { Router } from '@angular/router';
+import { CheckListService } from '../checklist.service';
 
 @Component({
   selector: 'app-checklist-sox',
@@ -7,8 +8,9 @@ import { CheckListService } from '../checklist/checklist.service';
   styleUrls: ['./checklist-sox.component.css']
 })
 export class ChecklistSoxComponent implements OnInit {
+  message: Object;
 
-  constructor(private checklistService:CheckListService) {}
+  constructor(private checklistService:CheckListService,private routes: Router) {}
 
   typeInt :string="SOX";
   soxQuestions: any;
@@ -34,13 +36,19 @@ export class ChecklistSoxComponent implements OnInit {
 
   onSubmit(){
     this.getCount()
-    console.log("count",this.count);
+    //console.log("count",this.count);
     let obj:any = {
       "auditType":"SOX",
-      "auditResponseYesCount":this.count
+      "auditResponseYesCount":this.count,
+      "benchMarkEntity":{
+        "auditBenchmarkId":2
+      }
     }
-    this.response.push(obj)
-    console.log("Respone",this.response)
+    //this.response.push(obj)
+    console.log("Respone",obj)
+    let resp = this.checklistService.postResponses(obj)
+    resp.subscribe((data)=>this.message=data) 
+    this.routes.navigate(['/audit-status']); 
   }
 
   ngOnInit() {
