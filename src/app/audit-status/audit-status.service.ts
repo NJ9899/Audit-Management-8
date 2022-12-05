@@ -15,12 +15,12 @@ export class AuditStatusService {
   // }
   public getAuditStatus():Observable<Result[]>{
     console.log("Inside getAuditStatus")
-    return this.http.get<Result[]>("http://localhost:9631/auditstatus");
+    return this.http.get<Result[]>("http://auditmanagmentsystem-env.eba-ybuj3wmd.us-east-2.elasticbeanstalk.com/auditstatus");
   }
 
   public getAuditStatus1(){
     console.log("Inside getAuditStatus")
-    return this.http.get("http://localhost:9631/auditstatus");
+    return this.http.get("http://auditmanagmentsystem-env.eba-ybuj3wmd.us-east-2.elasticbeanstalk.com/auditstatus");
   }
 
   

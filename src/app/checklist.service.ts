@@ -14,7 +14,7 @@ export class CheckListService {
 
   public getQuestionsByType(typeInt):Observable<Question[]>{
     console.log("type:"+typeInt);
-    return this.http.get<Question[]>("http://localhost:9631/checklist/"+typeInt);
+    return this.http.get<Question[]>("http://auditmanagmentsystem-env.eba-ybuj3wmd.us-east-2.elasticbeanstalk.com/checklist/"+typeInt);
   }
 
   // public postResponses(response):any{
@@ -24,7 +24,7 @@ export class CheckListService {
 
   public postResponses(response){
     //const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
-    return this.http.post("http://localhost:9631/auditstatus",response,{responseType:'text' as 'json'});
+    return this.http.post("http://auditmanagmentsystem-env.eba-ybuj3wmd.us-east-2.elasticbeanstalk.com/auditstatus",response,{responseType:'text' as 'json'});
   }
 }
 
